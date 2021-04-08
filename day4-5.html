@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        #login {
+            background-color: aqua;
+        }
+        
+        #register {
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <h1>{{msg}}</h1>
+        <!-- v-once一次性插入，不能修改 -->
+        <h1 v-once>{{msg}}</h1>
+        <h1>{{htmlTxT}}</h1>
+        <!-- 插入HTML的内容 -->
+        <h1 v-html="htmlTxT"></h1>
+        <!-- 绑定动态属性，可以进行修改 ,全写是v-bind：-->
+        <h1 :id="idname">登录</h1>
+        <!-- 模板语言表达式的使用 -->
+        <div>
+            {{firstname+lastname}}
+        </div>
+        <!-- 三元运算符的使用 -->
+        <div>
+            {{isVIP?"huanying":"qinchongzhi"}}
+        </div>
+    </div>
+    <script>
+        let app = new Vue({
+            el: "#app",
+            data: {
+                msg: "hello,Vue",
+                htmlTxT: '<span>hello</span>',
+                idname: "login",
+                firstname: "小",
+                lastname: "明",
+                isVIP: true,
+
+            }
+        })
+    </script>
+</body>
+
+</html>
